@@ -1,0 +1,10 @@
+s(  x=2)                            #0.9092974268256817
+c  (0.5)                            #0.8775825618903728
+l( 4 )                              #1.3862943611198906
+e ( 9)                              #8103.083927575384
+sqrt(1156)                          #34
+print x + 4, 44, y, 3 || 0, x^2     #6.044.00.01.04.0
+i=read()                            #nothing
+i                                   #print i which has value of whatever is input
+i^=read()                           #nothing
+i                                   #print i

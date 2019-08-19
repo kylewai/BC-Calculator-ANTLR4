@@ -1,0 +1,22 @@
+x=2             #nothing
+y=2             #nothing
+3 * 4           #12
+x * y;x * 3;3 * y;z=8       #4
+                            #6
+                            #6
+                            #nothing
+(z=8)*(b=4)     #32
+3 / 4           #0.75
+x / y           #1
+x / 3           #0.666666
+3 / y           #1.5
+z= 8 / b = 4    #nothing
+z               #2
+b               #4
+x=5             #nothing
+y=12            #nothing
+y % x           #2
+(x=3) % (y=3)   #0
+x^y             #27
+3^(g=4)         #81
+
