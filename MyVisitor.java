@@ -24,14 +24,14 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			}
 		}
 		return 0.0;
-    }
+	}
 	public Double visitIfStat(BCParser.IfStatContext ctx){
 		Double condBlock = visit(ctx.condPlusStat());
 		if(condBlock == 0){
 			if(ctx.statBlock() != null) visit(ctx.statBlock());
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#whileStat}.
 	 * @param ctx the parse tree
@@ -240,7 +240,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			visit(ctx.getChild(i));
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code stat1}
 	 * labeled alternative in {@link BCParser#stat}.
@@ -250,7 +250,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitStat1(BCParser.Stat1Context ctx){
 		visit(ctx.ifStat());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code stat2}
 	 * labeled alternative in {@link BCParser#stat}.
@@ -260,15 +260,15 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitStat2(BCParser.Stat2Context ctx){
 		visit(ctx.whileStat());
 		return 0.0;
-    }
+	}
 
 	public Double visitStat6(BCParser.Stat6Context ctx){
 		visit(ctx.forStat());
 		return 0.0;
-    }
+	}
 	public Double visitStat7(BCParser.Stat7Context ctx){
 		return visit(ctx.funcCall());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code stat3}
 	 * labeled alternative in {@link BCParser#stat}.
@@ -278,7 +278,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitStat3(BCParser.Stat3Context ctx){
 		visit(ctx.exprWrap());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code stat4}
 	 * labeled alternative in {@link BCParser#stat}.
@@ -288,7 +288,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitStat4(BCParser.Stat4Context ctx){
 		visit(ctx.assignWrap());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code stat5}
 	 * labeled alternative in {@link BCParser#stat}.
@@ -298,7 +298,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitStat5(BCParser.Stat5Context ctx){
 		visit(ctx.printWrap());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code return0.0}
 	 * labeled alternative in {@link BCParser#returnStat}.
@@ -313,7 +313,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			throw new RuntimeException("----Illegal return statement");
 		}
 		throw new RuntimeException("0.0");
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code return1}
 	 * labeled alternative in {@link BCParser#returnStat}.
@@ -329,7 +329,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		else{
 			throw new RuntimeException("----Illegal return statement");
 		}
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code return2}
 	 * labeled alternative in {@link BCParser#returnStat}.
@@ -345,7 +345,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		else{
 			throw new RuntimeException("----Illegal return statement");
 		}
-  	}
+	}
 
 	public Double visitContinue(BCParser.ContinueContext ctx) {
 		throw new RuntimeException("Continue outside of for/while loop");
@@ -370,7 +370,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		}
 		System.out.println(exprRes);
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprWrap2}
 	 * labeled alternative in {@link BCParser#exprWrap}.
@@ -380,13 +380,13 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitExprWrap2(BCParser.ExprWrap2Context ctx){
 		visit(ctx.exprStatement());
 		if(!exprList.isEmpty()){
-            for(double i : exprList){
-                System.out.println(i);
-            }
-            exprList.clear();
-        }
+			for(double i : exprList){
+				System.out.println(i);
+			}
+			exprList.clear();
+		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprWrap3}
 	 * labeled alternative in {@link BCParser#exprWrap}.
@@ -396,7 +396,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitExprWrap3(BCParser.ExprWrap3Context ctx){
 		visit(ctx.exprStatement());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignWrap1}
 	 * labeled alternative in {@link BCParser#assignWrap}.
@@ -406,13 +406,13 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitAssignWrap1(BCParser.AssignWrap1Context ctx){
 		visit(ctx.assignStatement());
 		if(!exprList.isEmpty()){
-            for(double i : exprList){
-                System.out.println(i);
-            }
-            exprList.clear();
-        }
+			for(double i : exprList){
+				System.out.println(i);
+			}
+			exprList.clear();
+		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignWrap2}
 	 * labeled alternative in {@link BCParser#assignWrap}.
@@ -428,7 +428,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			exprList.clear();
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignWrap3}
 	 * labeled alternative in {@link BCParser#assignWrap}.
@@ -438,7 +438,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitAssignWrap3(BCParser.AssignWrap3Context ctx){
 		visit(ctx.assignStatement());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code printWrap1}
 	 * labeled alternative in {@link BCParser#printWrap}.
@@ -448,7 +448,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitPrintWrap1(BCParser.PrintWrap1Context ctx){
 		visit(ctx.printStatement());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code printWrap2}
 	 * labeled alternative in {@link BCParser#printWrap}.
@@ -458,7 +458,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitPrintWrap2(BCParser.PrintWrap2Context ctx){
 		visit(ctx.print());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code printWrap3}
 	 * labeled alternative in {@link BCParser#printWrap}.
@@ -468,7 +468,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitPrintWrap3(BCParser.PrintWrap3Context ctx){
 		visit(ctx.printStatement());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#exprStatement}.
 	 * @param ctx the parse tree
@@ -478,7 +478,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		Double exprRes = visit(ctx.expr());
 		exprList.add(exprRes);
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#assignStatement}.
 	 * @param ctx the parse tree
@@ -487,7 +487,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitAssignStatement(BCParser.AssignStatementContext ctx){
 		visit(ctx.assign());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#printStatement}.
 	 * @param ctx the parse tree
@@ -496,7 +496,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitPrintStatement(BCParser.PrintStatementContext ctx){
 		visit(ctx.print());
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code print1}
 	 * labeled alternative in {@link BCParser#print}.
@@ -512,7 +512,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		System.out.println();
 		printList.clear();
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code print2}
 	 * labeled alternative in {@link BCParser#print}.
@@ -528,7 +528,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		System.out.println();
 		printList.clear();
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#list}.
 	 * @param ctx the parse tree
@@ -540,7 +540,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			visit(ctx.getChild(i));
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#exprListEl}.
 	 * @param ctx the parse tree
@@ -549,7 +549,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitExprListEl(BCParser.ExprListElContext ctx){
 		printList.add(visit(ctx.expr()));
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#assignListEl}.
 	 * @param ctx the parse tree
@@ -558,7 +558,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitAssignListEl(BCParser.AssignListElContext ctx){
 		printList.add(visit(ctx.assign()));
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprExpExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -567,10 +567,10 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExprExpExpr(BCParser.ExprExpExprContext ctx){
 		/*if((int)$ra.result != $ra.result){
-                System.out.println("error: non-integer exponent");
-            }*/
-        return Math.pow(visit(ctx.expr(0)), visit(ctx.expr(1)));
-    }
+			System.out.println("error: non-integer exponent");
+			}*/
+		return Math.pow(visit(ctx.expr(0)), visit(ctx.expr(1)));
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprOrExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -579,7 +579,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExprOrExpr(BCParser.ExprOrExprContext ctx){
 		return (visit(ctx.expr(0)) != 0 || visit(ctx.expr(1)) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprOp2Assign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -591,12 +591,12 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		Double exprRes = visit(ctx.expr());
 		Double assignRes = visit(ctx.assign());
 		switch(op){
-                case "*": return exprRes * assignRes;
-                case "/": return exprRes / assignRes;
-                case "%": return exprRes % assignRes;
-            }
+			case "*": return exprRes * assignRes;
+			case "/": return exprRes / assignRes;
+			case "%": return exprRes % assignRes;
+		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code negAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -605,7 +605,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitNegAssign(BCParser.NegAssignContext ctx){
 		return -1 * visit(ctx.assign());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code integer}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -614,7 +614,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitInteger(BCParser.IntegerContext ctx){
 		return Double.parseDouble(ctx.INT().getText());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code logAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -623,7 +623,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitLogAssign(BCParser.LogAssignContext ctx){
 		return Math.log(visit(ctx.assign()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprOp1Expr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -642,7 +642,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			returnVal = expr1Res - expr2Res;
 		}
 		return returnVal;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code logExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -651,7 +651,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitLogExpr(BCParser.LogExprContext ctx){
 		return Math.log(visit(ctx.expr()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprAndAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -660,7 +660,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExprAndAssign(BCParser.ExprAndAssignContext ctx){
 		return (visit(ctx.expr()) != 0 && visit(ctx.assign()) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code parensAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -669,7 +669,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitParensAssign(BCParser.ParensAssignContext ctx){
 		return visit(ctx.assign());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code expAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -678,7 +678,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExpAssign(BCParser.ExpAssignContext ctx){
 		return Math.exp(visit(ctx.assign()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprExpAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -687,10 +687,10 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExprExpAssign(BCParser.ExprExpAssignContext ctx){
 		/*if((int)$ra.result != $ra.result){
-                System.out.println("error: non-integer exponent");
-            }*/
-        return Math.pow(visit(ctx.expr()), visit(ctx.assign()));
-    }
+			System.out.println("error: non-integer exponent");
+			}*/
+		return Math.pow(visit(ctx.expr()), visit(ctx.assign()));
+	}
 	/**
 	 * Visit a parse tree produced by the {@code preDecrement}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -709,7 +709,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			result = -1 * 1.0;
 		}
 		return result;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code expExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -718,7 +718,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExpExpr(BCParser.ExpExprContext ctx){
 		return Math.exp(visit(ctx.expr()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignAndExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -727,7 +727,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitAssignAndExpr(BCParser.AssignAndExprContext ctx){
 		return (visit(ctx.assign()) != 0 && visit(ctx.expr()) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code postIncrement}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -746,7 +746,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			result = 0.0;
 		}
 		return result;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprOrAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -755,7 +755,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExprOrAssign(BCParser.ExprOrAssignContext ctx){
 		return (visit(ctx.expr()) != 0 || visit(ctx.assign()) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code sinAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -764,7 +764,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitSinAssign(BCParser.SinAssignContext ctx){
 		return Math.sin(visit(ctx.assign()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprAndExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -773,7 +773,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitExprAndExpr(BCParser.ExprAndExprContext ctx){
 		return (visit(ctx.expr(0)) != 0 && visit(ctx.expr(1)) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignOrExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -782,7 +782,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitAssignOrExpr(BCParser.AssignOrExprContext ctx){
 		return (visit(ctx.assign()) != 0 || visit(ctx.expr()) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignAndAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -791,7 +791,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitAssignAndAssign(BCParser.AssignAndAssignContext ctx){
 		return (visit(ctx.assign(0)) != 0 && visit(ctx.assign(1)) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code read}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -801,7 +801,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitRead(BCParser.ReadContext ctx){
 		Double result = input.nextDouble();
 		return result;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code sinExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -810,7 +810,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitSinExpr(BCParser.SinExprContext ctx){
 		return Math.sin(visit(ctx.expr()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code double}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -819,7 +819,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitDouble(BCParser.DoubleContext ctx){
 		return Double.parseDouble(ctx.DOUBLE().getText());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code var}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -829,7 +829,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitVar(BCParser.VarContext ctx){
 		String var = ctx.VAR().getText();
 		return scopes.peek().containsKey(var)? scopes.peek().get(var) : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code postDecrement}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -848,7 +848,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			result = 0.0;
 		}
 		return result;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code sqrtExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -857,7 +857,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitSqrtExpr(BCParser.SqrtExprContext ctx){
 		return Math.sqrt(visit(ctx.expr()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprOp1Assign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -876,7 +876,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			returnVal = exprRes - assignRes;
 		}
 		return returnVal;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code parensExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -885,7 +885,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitParensExpr(BCParser.ParensExprContext ctx){
 		return visit(ctx.expr());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assignOrAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -894,7 +894,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitAssignOrAssign(BCParser.AssignOrAssignContext ctx){
 		return (visit(ctx.assign(0)) != 0 || visit(ctx.assign(1)) != 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code cosAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -903,7 +903,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitCosAssign(BCParser.CosAssignContext ctx){
 		return Math.cos(visit(ctx.assign()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code preIncrement}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -922,7 +922,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			result = 1.0;
 		}
 		return result;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code sqrtAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -931,7 +931,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitSqrtAssign(BCParser.SqrtAssignContext ctx){
 		return Math.sqrt(visit(ctx.assign()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code notAssign}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -940,7 +940,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitNotAssign(BCParser.NotAssignContext ctx){
 		return (visit(ctx.assign()) == 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code notExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -949,7 +949,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitNotExpr(BCParser.NotExprContext ctx){
 		return (visit(ctx.expr()) == 0)? 1.0 : 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code cosExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -958,7 +958,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitCosExpr(BCParser.CosExprContext ctx){
 		return Math.cos(visit(ctx.expr()));
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code negExpr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -967,7 +967,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	 */
 	public Double visitNegExpr(BCParser.NegExprContext ctx){
 		return -1 * visit(ctx.expr());
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code exprOp2Expr}
 	 * labeled alternative in {@link BCParser#expr}.
@@ -982,9 +982,9 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			case "*": return expr1Res * expr2Res;
 			case "/": return expr1Res / expr2Res;
 			case "%": return expr1Res % expr2Res;
-        }
+		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assign1}
 	 * labeled alternative in {@link BCParser#assign}.
@@ -994,8 +994,8 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	public Double visitAssign1(BCParser.Assign1Context ctx){
 		Double exprRes = visit(ctx.expr());
 		scopes.peek().put(ctx.VAR().getText(), exprRes);
-        return exprRes;
-    }
+		return exprRes;
+	}
 	/**
 	 * Visit a parse tree produced by the {@code assign2}
 	 * labeled alternative in {@link BCParser#assign}.
@@ -1006,34 +1006,34 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		Double assignRes = visit(ctx.assign());
 		scopes.peek().put(ctx.VAR().getText(), assignRes);
 		return assignRes;
-    }
+	}
 	public Double visitAssign3(BCParser.Assign3Context ctx){
 		String var = ctx.VAR().getText();
 		String expr = ctx.expr().getText();
 		Double exprRes = visit(ctx.expr());
 		Double result = 0.0;
-        switch(ctx.op.getText()){
-                case "*": result = scopes.peek().get(var) * exprRes;
-                    scopes.peek().put(var, result);
-                    break;
-                case "/": result = scopes.peek().get(var) / exprRes;
-                    scopes.peek().put(var, result);
-                    break;
-                case "%": result = scopes.peek().get(var) % exprRes;
-                    scopes.peek().put(var, result);
-                    break;
-                case "+": result = scopes.peek().get(var) + exprRes;
-                    scopes.peek().put(var, result);
-                    break;
-                case "-": result = scopes.peek().get(var) - exprRes;
-                    scopes.peek().put(var, result);
-                    break;
-                case "^": result = Math.pow(scopes.peek().get(var), exprRes);
-                    scopes.peek().put(var, result);
-                    break;
-        }
+		switch(ctx.op.getText()){
+			case "*": result = scopes.peek().get(var) * exprRes;
+				scopes.peek().put(var, result);
+				break;
+			case "/": result = scopes.peek().get(var) / exprRes;
+				scopes.peek().put(var, result);
+				break;
+			case "%": result = scopes.peek().get(var) % exprRes;
+				scopes.peek().put(var, result);
+				break;
+			case "+": result = scopes.peek().get(var) + exprRes;
+				scopes.peek().put(var, result);
+				break;
+			case "-": result = scopes.peek().get(var) - exprRes;
+				scopes.peek().put(var, result);
+				break;
+			case "^": result = Math.pow(scopes.peek().get(var), exprRes);
+				scopes.peek().put(var, result);
+				break;
+		}
 		return result;
-    }
+	}
 	public Double visitExprLess1Expr(BCParser.ExprLess1ExprContext ctx) { 
 		return (visit(ctx.expr(0)) < visit(ctx.expr(1)))? 1.0 : 0.0; 
 	}
