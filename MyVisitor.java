@@ -9,11 +9,11 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 	Stack<HashMap<String, Double>> scopes = new Stack<HashMap<String, Double>>();
 	HashMap<String, Function> funcNames = new HashMap<>();
 	ArrayList<Double> printList = new ArrayList<>();
-    ArrayList<Double> exprList = new ArrayList<>();
+	ArrayList<Double> exprList = new ArrayList<>();
 	Scanner input = new Scanner(System.in);
 	String funcName = "";
 
-    public Double visitMultExpr(BCParser.MultExprContext ctx){
+	public Double visitMultExpr(BCParser.MultExprContext ctx){
 		scopes.push(new HashMap<String, Double>());
 		for(int i = 0; i < ctx.getChildCount(); i++){
 			try{
@@ -54,7 +54,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			}
 		}
 		return 0.0;
-  	}
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#forStat}.
 	 * @param ctx the parse tree
@@ -83,7 +83,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			visit(ctx.getChild(6));
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#forSetup}.
 	 * @param ctx the parse tree
@@ -101,7 +101,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 		funcNames.put(funcName, func);
 		if(ctx.varList() != null) visit(ctx.varList());
 		return 0.0;
-    }
+	}
 
 	public Double visitVarList(BCParser.VarListContext ctx){
 		/*HashMap<String, Double> newScope = new HashMap<>();
@@ -162,7 +162,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			}
 		}
 		return returnRes;
-    }
+	}
 	public Double visitFuncCall2(BCParser.FuncCall2Context ctx) {
 		ArrayList<Double> args = new ArrayList<>();
 		if(ctx.assign() != null){
@@ -200,7 +200,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			}
 		}
 		return returnRes;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code condPlusStat1}
 	 * labeled alternative in {@link BCParser#condPlusStat}.
@@ -214,7 +214,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			return 1.0;
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by the {@code condPlusStat2}
 	 * labeled alternative in {@link BCParser#condPlusStat}.
@@ -228,7 +228,7 @@ public class MyVisitor extends BCBaseVisitor<Double>{
 			return 1.0;
 		}
 		return 0.0;
-    }
+	}
 	/**
 	 * Visit a parse tree produced by {@link BCParser#statBlock}.
 	 * @param ctx the parse tree
